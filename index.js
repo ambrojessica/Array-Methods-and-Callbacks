@@ -107,10 +107,10 @@ Use the higher order function getAverageGoals to do the following:
 
 function getAverageGoals(getFinalsCB) {
    /* code here */
-   const averageGoals = getFinalsCB(data).reduce(function(acc, item){
-       return acc + item['Home Team Goals']
-   });
-   return averageGoals;
+   const averageGoals = getFinalsCB.reduce(function(acc, item){
+       return acc + item['Home Team Goals'] + item['Away Team Goals'];
+   }, 0);
+   return (averageGoals / getFinalsCB.length).toFixed(2);
 }
 
 
